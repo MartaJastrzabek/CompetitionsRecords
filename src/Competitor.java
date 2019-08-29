@@ -1,4 +1,4 @@
-public class Competitor implements Comparable<Competitor>{
+public class Competitor {
     private String firstName;
     private String lastName;
     private int result;
@@ -24,18 +24,5 @@ public class Competitor implements Comparable<Competitor>{
     @Override
     public String toString() {
         return firstName + " " + lastName + " wynik: " + result;
-    }
-
-    @Override
-    public int compareTo(Competitor c) {
-        if (c == null)
-            return 1;
-
-        if(this.result > c.result)
-            return 1;
-        else if(this.result == c.result)
-            return this.lastName.compareTo(c.lastName);
-        else
-            return -1;
     }
 }

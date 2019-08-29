@@ -9,9 +9,10 @@ public class CompetitionTest {
     private static final String OUTPUT_FILE = "stats.csv";
 
     public static void main(String[] args) {
+        ResultComparator comparator = new ResultComparator();
         try {
             List<Competitor> competitors = createCompetitorsList();
-            Collections.sort(competitors);
+            Collections.sort(competitors, comparator);
             saveToFile(competitors);
             System.out.println("Dane posortowano i zapisano do pliku.");
         } catch (IOException e) {
@@ -28,7 +29,7 @@ public class CompetitionTest {
             br.write(c.getFirstName() + "," + c.getLastName() + "," + c.getResult());
             br.newLine();
         }
-        br.flush();
+
         br.close();
     }
 
